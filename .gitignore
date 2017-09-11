@@ -1,0 +1,6 @@
+.vscode
+dist
+*.map
+node_modules
+server/dist
+.serverless
