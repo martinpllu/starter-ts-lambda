@@ -94,6 +94,12 @@ functions:
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
+  - serverless-webpack
+
+# Enable auto-packing of external modules
+custom:
+  webpackIncludeModules: true
+
 
 package:
   exclude:

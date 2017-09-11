@@ -1,4 +1,4 @@
-Boilerplate for getting quickly started with a new TypeScript Lambda function.
+Boilerplate for getting quickly started with a new TypeScript Lambda function using the Serverless framework.
 
 ## Quick start
 
