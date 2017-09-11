@@ -10,24 +10,6 @@ const entries = Object.keys(slsw.lib.entries).reduce((acc, key) => ({
 module.exports = {
   entry: entries,
   target: 'node',
-  devServer: {
-    stats: {
-      colors: true,
-      hash: false,
-      version: false,
-      timings: false,
-      assets: false,
-      chunks: false,
-      modules: false,
-      reasons: false,
-      children: false,
-      source: false,
-      errors: false,
-      errorDetails: false,
-      warnings: false,
-      publicPath: false
-    }
-   },
   // Generate sourcemaps for proper error messages
   devtool: 'source-map',
   // Since 'aws-sdk' is not compatible with webpack,
