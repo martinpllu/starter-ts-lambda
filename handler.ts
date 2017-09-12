@@ -1,19 +1,22 @@
 import { Handler, Context, Callback } from 'aws-lambda';
-
-interface HelloResponse {
-  statusCode: number;
-  body: string;
-}
+import { Greeter } from './library';
 
 const hello: Handler = (event: any, context: Context, callback: Callback) => {
-  const response: HelloResponse = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: Math.floor(Math.random() * 10)
+  console.log(JSON.stringify(event.queryStringParameters))
+  let name = event.queryStringParameters['name'];
+  let sendResponse = (status:number, bodyText:string) => {
+    callback(undefined, {
+      statusCode: status,
+      body: bodyText
     })
-  };
-
-  callback(undefined, response);
-};
+  }
+  new Greeter().sayHelloAsync(name)
+    .then((greeting) => {
+      sendResponse(200, greeting);
+    })
+    .catch((error) => {
+      sendResponse(500, error);
+    })
+}
 
 export { hello }
